@@ -44,7 +44,7 @@ export default class PostForm extends Component {
       }))
     }
   }
-  checkEmptyInputs() { 
+  checkEmptyInputs() {
     this.checkEmptyInput('firstName')
     this.checkEmptyInput('secondName')
     this.checkEmptyInput('birthDate')
@@ -76,7 +76,7 @@ export default class PostForm extends Component {
     }
   }
   checkSite() {
-    if (this.state.site?.length > 0 && this.state.site?.length < 12) {
+    if (this.state.site?.length > 0 && this.state.site?.length < 9) {
       this.setState({ isSiteCorrect: false })
       return
     }
@@ -109,7 +109,7 @@ export default class PostForm extends Component {
     }))
   }
   handleInputChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
@@ -127,11 +127,11 @@ export default class PostForm extends Component {
           <span className={s.span}>Поле пустое. Заполните пожалуйста</span>
         )}
         {this.state.firstName?.trim()[0] !==
-            this.state.firstName?.trim()[0]?.toUpperCase() && (
-            <span className={s.span}>
-              Первый символ должен находиться в верхнем регистре!
-            </span>
-          )}
+          this.state.firstName?.trim()[0]?.toUpperCase() && (
+          <span className={s.span}>
+            Первый символ должен находиться в верхнем регистре!
+          </span>
+        )}
         <MyInput
           htmlFor='secondName'
           type='text'
@@ -144,11 +144,11 @@ export default class PostForm extends Component {
           <span className={s.span}>Поле пустое. Заполните пожалуйста</span>
         )}
         {this.state.secondName?.trim()[0] !==
-            this.state.secondName?.trim()[0]?.toUpperCase() && (
-            <span className={s.span}>
-              Первый символ должен находиться в верхнем регистре!
-            </span>
-          )}
+          this.state.secondName?.trim()[0]?.toUpperCase() && (
+          <span className={s.span}>
+            Первый символ должен находиться в верхнем регистре!
+          </span>
+        )}
         <MyInput
           htmlFor='birthDate'
           type='date'
@@ -189,9 +189,12 @@ export default class PostForm extends Component {
         {this.state.errors.site && this.state.site === '' && (
           <span className={s.span}>Поле пустое. Заполните пожалуйста</span>
         )}
-        {!this.state.isSiteCorrect && this.state.site?.substring(0, 8) !== 'https://' && (
-          <span className={s.span}>Ссылка должна начинаться с "https://"</span>
-        )}
+        {!this.state.isSiteCorrect &&
+          this.state.site?.substring(0, 8) !== 'https://' && (
+            <span className={s.span}>
+              Ссылка должна начинаться с "https://"
+            </span>
+          )}
         <MyTextArea
           htmlFor='aboutMe'
           content='О себе'
