@@ -1,0 +1,25 @@
+textarea {
+    resize: none;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.textarea {
+    width: 350px;
+    height: 100px;
+}
+
+.span {
+    display: flex;
+    justify-content: end;
+}
+
+.error {
+    display: flex;
+    justify-content: end;
+    color: red;
+}
